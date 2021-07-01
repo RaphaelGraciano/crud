@@ -1,9 +1,10 @@
 <form method="POST" action="?acao=Form&metodo=salvar">
+  <input type="hidden" name="id" value="{id}" />
   <label>Cliente:</label>
-  <input type="varchar" name="cliente" required /><br />
+  <input type="varchar" name="cliente" value="{cliente}" required /><br />
   <label>Agencia:</label>
-  <textarea type="varchar" name="agencia" required></textarea><br />
+  <textarea type="varchar" name="agencia" required>{agencia}</textarea><br />
   <label>Conta:</label>
-  <input type="varchar" name="conta" required /><br />
+  <input type="varchar" name="conta"   value="{conta}" required  /><br />
   <button type="submit">Salvar</button>
 </form>
