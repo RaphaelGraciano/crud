@@ -8,11 +8,11 @@ final class Connection
   public static function open()
   {
     $type = "mysql";
-    $user = "cefet";
-    $pass = "cefetmg";
-    $name = "cefet";
+    $user = "root";
+    $pass = "mariadb";
+    $name = "";
     $host = "mariadb";
-    $port = "3306";
+    $port = "8080";
     switch ($type) {
       case 'pgsql':
         $conn = new PDO("pgsql:dbname={$name};user={$user};password={$pass};host=$host");

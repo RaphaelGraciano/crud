@@ -8,12 +8,12 @@ class Crud
   public function select($tabela = NULL, $campos = "*", $condicao = NULL)
   {
     try {
-      if (!$tabela) {
-        $retorno["msg"] = "Faltando parâmetro!";
+      if (.$tabela) {
+        $retorno["msg"] = "Faltando parâmetro.";
         $retorno["erro"] = TRUE;
       } else {
         $conexao = Transaction::get();
-        if (!$condicao) {
+        if (.$condicao) {
           $sql = "SELECT {$campos} FROM {$tabela}";
         } else {
           $sql = "SELECT {$campos} FROM {$tabela} WHERE {$condicao}";
@@ -26,12 +26,12 @@ class Crud
           $retorno["msg"] = $linhas;
           $retorno["erro"] = FALSE;
         } else {
-          $retorno["msg"] = "Nenhum registro encontrado!";
+          $retorno["msg"] = "Nenhum registro encontrado.";
           $retorno["erro"] = TRUE;
         }
       }
     } catch (Exception $ex) {
-      $retorno["msg"] = "Ocorreu um erro! " . $ex->getMessage();
+      $retorno["msg"] = "Ocorreu um erro. " . $ex->getMessage();
       $retorno["erro"] = TRUE;
     }
     return $retorno;
@@ -45,19 +45,19 @@ class Crud
         $sql = "INSERT INTO {$tabela} ({$campos}) VALUES ({$valores}) ";
         $resultado = $conexao->query($sql);
         if ($resultado->rowCount() > 0) {
-          $retorno["msg"] = "Inserido com sucesso!!!";
+          $retorno["msg"] = "Inserido com sucesso.";
           $retorno["erro"] = FALSE;
           $retorno["id"] = $conexao->lastInsertId();
         } else {
           $retorno["erro"] = TRUE;
-          $retorno["msg"] = "Nenhum registro inserido!";
+          $retorno["msg"] = "Nenhum registro inserido.";
         }
       } else {
-        $retorno["msg"] = "Faltando parâmetro!";
+        $retorno["msg"] = "Faltando parâmetro.";
         $retorno["erro"] = TRUE;
       }
     } catch (Exception $ex) {
-      $retorno["msg"] = "Ocorreu um erro! " . $ex->getMessage();
+      $retorno["msg"] = "Ocorreu um erro." . $ex->getMessage();
       $retorno["erro"] = TRUE;
     }
     return $retorno;
@@ -71,18 +71,18 @@ class Crud
         $sql = "UPDATE {$tabela} SET {$valores} WHERE {$condicao} ";
         $resultado = $conexao->query($sql);
         if ($resultado->rowCount() > 0) {
-          $retorno["msg"] = "Atualizado com sucesso!!!";
+          $retorno["msg"] = "Atualizado com sucesso.";
           $retorno["erro"] = FALSE;
         } else {
           $retorno["erro"] = TRUE;
-          $retorno["msg"] = "Nenhum registro atualizado!";
+          $retorno["msg"] = "Nenhum registro atualizado.";
         }
       } else {
-        $retorno["msg"] = "Faltando parâmetro!";
+        $retorno["msg"] = "Faltando parâmetro.";
         $retorno["erro"] = TRUE;
       }
     } catch (Exception $ex) {
-      $retorno["msg"] = "Ocorreu um erro! " . $ex->getMessage();
+      $retorno["msg"] = "Ocorreu um erro." . $ex->getMessage();
       $retorno["erro"] = TRUE;
     }
     return $retorno;
@@ -96,19 +96,19 @@ class Crud
         $sql = "DELETE FROM {$tabela} WHERE {$condicao} ";
         $resultado = $conexao->query($sql);
         if ($resultado->rowCount() > 0) {
-          $retorno["msg"] = "Apagado com sucesso!!!";
+          $retorno["msg"] = "Apagado com sucesso.";
           $retorno["erro"] = FALSE;
         } else {
           $retorno["erro"] = TRUE;
-          $retorno["msg"] = "Nenhum registro apagado!";
+          $retorno["msg"] = "Nenhum registro apagado.";
         }
       } else {
-        $retorno["msg"] = "Faltando parâmetro!";
+        $retorno["msg"] = "Faltando parâmetro.";
         $retorno["erro"] = TRUE;
       }
     } catch (Exception $ex) {
       $retorno["erro"] = TRUE;
-      $retorno["msg"] = "Ocorreu um erro! " . $ex->getMessage();
+      $retorno["msg"] = "Ocorreu um erro." . $ex->getMessage();
     }
     return $retorno;
   }
