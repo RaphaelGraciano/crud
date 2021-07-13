@@ -1,19 +1,18 @@
 <table border="1">
   <thead>
     <tr>
-      <th>Cliente</th>
-      <th>Agencia</th>
-      <th>Conta</th>
+      <th>Tarefa</th>
+      <th>Horario</th>
+      <th>Data</th>
       <th>Editar</th>
       <th>Remover</th>
     </tr>
   </thead>
   <tbody>
-    {linha}
     <tr>
-      <td>{cliente}</td>
-      <td>{agencia}</td>
-      <td>{conta}</td>
+      <td>{tarefa}</td>
+      <td>{horario}</td>
+      <td>{data}</td>
       <td>
         <button type="button"
         onclick="window.location.href='?acao=Tabela&metodo=editar&id={id}';"
@@ -29,6 +28,5 @@
         </button>
       </td>
     </tr>
-    {/linha}
   </tbody>
 </table>

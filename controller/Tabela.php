@@ -10,14 +10,14 @@ class Tabela
     try {
       Transaction::get();
       $crud = new Crud();
-      $retorno = $crud->select("contas");
+      $retorno = $crud->select("Tarefas");
       if (!$retorno["erro"]) {
         $tabela = new Template("view/tabela.html");
         $tabela->set("linha", $retorno["msg"]);
         $retorno["msg"] = $tabela->saida();
       }
     } catch (Exception $e) {
-      $retorno["msg"] = "Ocorreu um erro! " . $e->getMessage();
+      $retorno["msg"] = "Ocorreu um erro!" . $e->getMessage();
       $retorno["erro"] = TRUE;
     }
     return $retorno;
@@ -31,15 +31,15 @@ class Tabela
         $id = $conexao->quote($_GET["id"]);
         $crud = new Crud();
         $retorno = $crud->delete(
-          "contas",
+          "Tarefas",
           "id={$id}"
         );
       } catch (Exception $e) {
-        $retorno["msg"] = "Ocorreu um erro! " . $e->getMessage();
+        $retorno["msg"] = "Ocorreu um erro!" . $e->getMessage();
         $retorno["erro"] = TRUE;
       }
     } else {
-      $retorno["msg"] = "Faltando parâmetro! ";
+      $retorno["msg"] = "Faltando parâmetro!";
       $retorno["erro"] = TRUE;
     }
     return $retorno;
@@ -53,7 +53,7 @@ class Tabela
         $id = $conexao->quote($_GET["id"]);
         $crud = new Crud();
         $retorno = $crud->select(
-          "contas",
+          "Tarefas",
           "*",
           "id={$id}"
         );
@@ -65,11 +65,11 @@ class Tabela
           $retorno["msg"] = $form->saida();
         }
       } catch (Exception $e) {
-        $retorno["msg"] = "Ocorreu um erro! " . $e->getMessage();
+        $retorno["msg"] = "Ocorreu um erro!" . $e->getMessage();
         $retorno["erro"] = TRUE;
       }
     } else {
-      $retorno["msg"] = "Faltando parâmetro! ";
+      $retorno["msg"] = "Faltando parâmetro!";
       $retorno["erro"] = TRUE;
     }
     return $retorno;

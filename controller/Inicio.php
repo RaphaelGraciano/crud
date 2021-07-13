@@ -4,7 +4,7 @@ class Inicio
   public function controller()
   {
     $inicio = new Template("view/inicio.html");
-    $inicio->set("nome", "Gabriel Santos Silva - 3° Informática");
+    $inicio->set("nome", "Raphael Graciano");
     $retorno["msg"] = $inicio->saida();
     return $retorno;
   }
